@@ -1,0 +1,7 @@
+// X-Sursaut — wrangler.jsonc — 2026-09-26
+{
+  "name": "xsursaut-site",
+  "compatibility_date": "2026-09-25",
+  "assets": { "directory": "./site/public" }
+}
+// ---------------------------------------------------------------- 7 lines
