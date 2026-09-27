@@ -9,6 +9,6 @@
     { "pattern": "xsursaut.org", "custom_domain": true },
     { "pattern": "www.xsursaut.org", "custom_domain": true }
   ],
-  "assets": { "directory": "./site/public", "binding": "ASSETS" }
+  "assets": { "directory": "./site/public", "binding": "ASSETS", "run_worker_first": true }
 }
 // ---------------------------------------------------------------- 14 lines
