@@ -1,0 +1,97 @@
+# X-Sursaut — .pages.yml — 2026-09-27
+media:
+  input: site/public/media
+  output: /media
+
+content:
+  - name: accueil
+    label: Page d’accueil
+    type: file
+    path: content/pages/accueil.md
+    fields:
+      - { name: title, label: Titre, type: string, required: true }
+      - { name: description, label: Description pour les moteurs de recherche, type: string, required: true }
+      - { name: eyebrow, label: Surtitre, type: string }
+      - { name: lead, label: Introduction, type: text }
+      - { name: primary_label, label: Texte du bouton principal, type: string }
+      - { name: primary_url, label: Lien du bouton principal, type: string }
+      - { name: secondary_label, label: Texte du second bouton, type: string }
+      - { name: secondary_url, label: Lien du second bouton, type: string }
+      - { name: body, label: Contenu, type: rich-text }
+
+  - name: presentation
+    label: Page Présentation
+    type: file
+    path: content/pages/presentation.md
+    fields: &page_fields
+      - { name: title, label: Titre, type: string, required: true }
+      - { name: description, label: Description pour les moteurs de recherche, type: string, required: true }
+      - { name: eyebrow, label: Surtitre, type: string }
+      - { name: lead, label: Introduction, type: text }
+      - { name: body, label: Contenu, type: rich-text }
+
+  - name: equipe
+    label: Page Équipe
+    type: file
+    path: content/pages/equipe.md
+    fields: *page_fields
+
+  - name: contact
+    label: Page Contact
+    type: file
+    path: content/pages/contact.md
+    fields: *page_fields
+
+  - name: mentions_legales
+    label: Mentions légales
+    type: file
+    path: content/pages/mentions-legales.md
+    fields: *page_fields
+
+  - name: actualites
+    label: Actualités
+    type: collection
+    path: content/actualites
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      fields: [title, date, published]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - { name: title, label: Titre, type: string, required: true }
+      - { name: date, label: Date, type: date, required: true }
+      - { name: summary, label: Résumé, type: text, required: true }
+      - { name: image, label: Image de partage, type: image }
+      - { name: published, label: Publié, type: boolean, default: false }
+      - { name: body, label: Contenu, type: rich-text, required: true }
+
+  - name: rapports
+    label: Rapports
+    type: collection
+    path: content/rapports
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      fields: [title, date, authors, published]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - { name: title, label: Titre, type: string, required: true }
+      - { name: date, label: Date, type: date, required: true }
+      - { name: authors, label: Auteurs, type: string }
+      - { name: summary, label: Résumé, type: text, required: true }
+      - name: document
+        label: Fichier PDF
+        type: file
+        required: true
+        options:
+          extensions: [pdf]
+          rename: true
+      - { name: published, label: Publié, type: boolean, default: false }
+      - { name: body, label: Présentation détaillée, type: rich-text }
+# ---------------------------------------------------------------- 97 lines
