@@ -27,8 +27,13 @@ test("RSS and social metadata are generated", async () => {
   assert.match(rss, /<rss version="2\.0">/);
 });
 
+test("deleted editorial entries do not leave stale output", async () => {
+  await assert.rejects(fs.access(path.join(root, "actualites/test-publication/index.html")));
+  await assert.rejects(fs.access(path.join(root, "publications/test-rapport/index.html")));
+});
+
 test("the recovered archive is substantial", async () => {
   const entries = await fs.readdir(path.join(root, "archives"), { withFileTypes: true });
   assert.ok(entries.filter((entry) => entry.isDirectory()).length >= 80);
 });
-// ---------------------------------------------------------------- 34 lines
+// ---------------------------------------------------------------- 39 lines
