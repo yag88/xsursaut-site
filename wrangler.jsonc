@@ -2,6 +2,13 @@
 {
   "name": "xsursaut-site",
   "compatibility_date": "2026-09-25",
-  "assets": { "directory": "./site/public" }
+  "main": "src/worker.js",
+  "workers_dev": true,
+  "preview_urls": true,
+  "routes": [
+    { "pattern": "xsursaut.org", "custom_domain": true },
+    { "pattern": "www.xsursaut.org", "custom_domain": true }
+  ],
+  "assets": { "directory": "./site/public", "binding": "ASSETS" }
 }
-// ---------------------------------------------------------------- 7 lines
+// ---------------------------------------------------------------- 14 lines
