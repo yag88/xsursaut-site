@@ -36,4 +36,10 @@ test("the recovered archive is substantial", async () => {
   const entries = await fs.readdir(path.join(root, "archives"), { withFileTypes: true });
   assert.ok(entries.filter((entry) => entry.isDirectory()).length >= 80);
 });
-// ---------------------------------------------------------------- 39 lines
+
+test("email worker forwards contact mail to both verified recipients", async () => {
+  const worker = await fs.readFile(path.resolve(import.meta.dirname, "../src/worker.js"), "utf8");
+  assert.match(worker, /message\.forward\("xsursaut@gagnard\.net"\)/);
+  assert.match(worker, /message\.forward\("laurentdaniel@yahoo\.fr"\)/);
+});
+// ---------------------------------------------------------------- 45 lines

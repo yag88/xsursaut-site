@@ -8,5 +8,11 @@ export default {
     }
     return env.ASSETS.fetch(request);
   },
+  async email(message) {
+    await Promise.all([
+      message.forward("xsursaut@gagnard.net"),
+      message.forward("laurentdaniel@yahoo.fr"),
+    ]);
+  },
 };
-// ---------------------------------------------------------------- 12 lines
+// ---------------------------------------------------------------- 18 lines
